@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs / editores
+.vscode/
+.idea/
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Optional: Coverage reports (caso use testes com coverage)
+coverage/
+
+# Optional: Lint cache
+.eslintcache
