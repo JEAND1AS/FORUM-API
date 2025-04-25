@@ -9,12 +9,11 @@ export class AnswersService {
   constructor(private readonly prisma: PrismaService) {}
 
 
-  create(createAnswerDto: CreateAnswerDto, userId: number) {
-    const questionId = 1;
+  create(createAnswerDto: CreateAnswerDto, userId: any, questionId: number) {
     const newAnswer = {
       body: createAnswerDto.body,
       user: {
-        connect: { id: userId },
+        connect: { id: userId.sub },
       },
       question: {
         connect: { id: questionId },
@@ -26,18 +25,25 @@ export class AnswersService {
   }
 
   findAll() {
-    return `This action returns all answers`;
+    return this.prisma.question.findMany({})
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} answer`;
-  }
+    return this.prisma.question.findUnique({
+      where: { id }
+  });
+}
 
   update(id: number, updateAnswerDto: UpdateAnswerDto) {
-    return `This action updates a #${id} answer`;
+    return this.prisma.question.update({
+      where: { id },
+      data: updateAnswerDto,
+    })
   }
 
   remove(id: number) {
-    return `This action removes a #${id} answer`;
+    return this.prisma.question.delete({
+      where: { id }
+    });
   }
 }

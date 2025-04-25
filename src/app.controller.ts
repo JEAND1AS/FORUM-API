@@ -1,9 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Put } from '@nestjs/common';
 
 @Controller()
 export class AppController {
   @Get()
   getRoot(): string {
-    return '🚀 API do Fórum rodando!';
+    return '🚀 GET FUNCIONANDO';
+  }
+
+  @Put()
+  updateRoot(): string {
+    return '🚀 PUT FUNCIONANDO';
+  }
+
+  @Post()
+  createRoot(): string {
+    return '🚀 POST FUNCIONANDO';
   }
 }
